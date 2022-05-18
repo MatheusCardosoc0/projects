@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="block">
+    <header>
+        <h1>Cadastre-se em nosso site</h1>
+        <div class="SizeContent">
+        <a>
+          <p>Digite seu nome:<input type="text" id="NameSave"></p>
+          <p>Digite seu sobrenome(opicional)<input type="text" id="SurnameSave"></p>
+        </a>
+        <a>
+          <p>Digite sua idade:<input type="number" id="YearSave"></p>
+          <p>Digite seu cpf: <input type="number" id="CPFSave"></p>
+        </a>
+        </div>
+    </header>
+    <main>
+      <div class="SizeContent">
+        <p>Em qual país você mora ? <input type="text" id="CountrySave"></p>
+        <p>Em qual estado você mora ?<input type="text" id="StateSave"></p>
+        <p>Seu CEP <input type="text" id="CEPSave"></p>
+        <div class="RejectDiv">
+          <p>Qual o seu interesse(opcional)<input type="text" id="OpinionSave"></p>
+        </div>
+        <button onclick="Ready()">Cadastre-se</button>
+      </div>
+    </main>
+  </section>
+  <script src="scripts.js">
+  </script>
+</body>
+</html>
