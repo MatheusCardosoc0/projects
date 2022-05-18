@@ -79,3 +79,23 @@ button:hover{
   background-color: rgb(2, 110, 2);
   color: aliceblue;
 }
+
+/*====== responsividade ======*/
+
+@media (min-width: 1024px) {
+  section#block{
+    display: flex;
+    flex-direction: initial;
+    width: min(75rem, 100%);
+    justify-content: space-around;
+  }
+  section#block p{
+    font-size: 2.2rem;
+  }
+  section#block button{
+    width: 18rem;
+    height: 4rem;
+    text-transform: uppercase;
+    font-size: 2rem;
+  }
+}
