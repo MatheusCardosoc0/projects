@@ -1,0 +1,90 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root{
+  font-size: 62.5%;
+}
+body, ul, li, p{
+  font-size: 2rem;
+  text-decoration: none;
+  list-style: none;
+  overflow: overlay;
+}
+body{
+  margin-bottom: 100px;
+}
+a{
+  text-decoration: none;
+  color: aliceblue;
+}
+h1{
+  text-align: center;
+  margin-block: 4rem;
+}
+img{
+  display: block;
+  max-width: 100%;
+}
+
+/*===== css flexbox =====*/
+
+.header{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: black;
+  padding: 2rem;
+  align-items: center;
+}
+.menu ul{
+  display: flex;
+  gap: 3rem;
+}
+.menu li a{
+  display: block;
+  padding: 1rem;
+}
+.menu li a:hover{
+  background-color: tomato;
+}
+section div img:nth-child(1){
+  width: 39rem;
+  height: 50rem;
+}
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.flex > div{
+  flex: 1 1 300px;
+  margin: 10px;
+}
+
+/*===== grid layaut ======*/
+
+.grid1{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 780px;
+  margin: 0 auto;
+  grid-gap: 20px;
+}
+.grid1 div:nth-child(n + 4 ){
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  align-items: center;
+}
+.grid1 div:nth-child(n + 4) img{
+  height: 20rem;
+}
+.grid1 div.anuncio{
+  grid-column: 1;
+  grid-row: 2/5;
+  display: block;
+}
