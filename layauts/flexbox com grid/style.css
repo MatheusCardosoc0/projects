@@ -10,7 +10,6 @@ body, ul, li, p{
   font-size: 2rem;
   text-decoration: none;
   list-style: none;
-  overflow: overlay;
 }
 body{
   margin-bottom: 100px;
@@ -65,7 +64,7 @@ section div img:nth-child(1){
   margin: 10px;
 }
 
-/*===== grid layaut ======*/
+/*===== grid layaut 1 ======*/
 
 .grid1{
   display: grid;
@@ -87,4 +86,82 @@ section div img:nth-child(1){
   grid-column: 1;
   grid-row: 2/5;
   display: block;
+}
+@media (max-width: 600px) {
+  .grid1{
+    grid-template-columns: 1fr 1fr;
+  }
+  .grid1 div:nth-child(n + 4){
+    display: block;
+  }
+  .grid1 div.anuncio{
+    grid-column: auto;
+    grid-row: auto;
+    order: -1;
+  }
+}
+
+/*====== grid 2 ====*/
+
+.grid2{
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  max-width: 800px;
+  grid-gap: 20px;
+  padding: 10px;
+  margin: 0 auto;
+}
+.grid2 .video img{
+  width: 700px;
+}
+.sidebar div{
+  margin-bottom: 15px;
+}
+div.sidebar div img{
+  height: 20rem;
+}
+@media (max-width: 600px) {
+  .grid2{
+    grid-template-columns: 1fr;
+  }
+  .sidebar{
+    display: flex;
+    overflow: scroll;
+  }
+  .sidebar div{
+    flex: 1 0 200px;
+    margin-left: 10px;
+  }
+}
+/*===== Layaut grid 3 =====*/
+
+.grid3{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+}
+.grid3-item:nth-child(1){
+  grid-row: 1 / 3;
+}
+.grid3-item:nth-child(1) img{
+  height: 103rem;
+}
+.grid3-item{
+  display: grid;
+}
+.grid3-item img{
+  grid-column: 1;
+  grid-row: 1/3;
+}
+.grid3-item p{
+  background-color: rgba(0, 0, 0 , 0.6);
+  color: aliceblue;
+  grid-column: 1;
+  grid-row: 2;
+  height: 6rem;
+  text-align: center;
+  padding: 2rem;
 }
