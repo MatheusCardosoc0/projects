@@ -1,0 +1,129 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root{
+  font-size: 62.5%;
+  --nav-height: 7rem;
+}
+body{
+  font-size: 1.6rem;
+  overflow: overlay;
+  color: rgb(70, 18, 119);
+}
+ul, li{
+  list-style: none;
+}
+.size-page{
+  margin-inline: auto;
+  padding-inline: 2.4rem;
+  width: min(50rem,100%);
+}
+
+/*==== estilos nav ====*/
+ nav {
+   display: flex;
+   width: 100vw;
+   top: 0;
+   border-end-start-radius: 5rem ;
+   border-bottom-right-radius: 5rem ;
+   position: fixed;
+   height: var(--nav-height);
+ }
+ nav h1{
+   color: rgb(114, 2, 219);
+   font-size: 3rem;
+ }
+ nav h1 b{
+   color: rgb(255, 230, 0);
+ }
+ nav .size-page{
+   align-items: center;
+   display: flex;
+   justify-content: space-between;
+   padding-inline: 0.5rem;
+ }
+ nav button{
+   cursor: pointer;
+ }
+ nav button:nth-child(1){
+   background: none;
+   border: none;
+   border-radius: 2rem;
+ }
+ nav button path{
+   stroke: purple;
+ }
+ nav button:hover{
+   background-color: rgb(251, 255, 2);
+ }
+ nav button:nth-child(2){
+   visibility: hidden;
+   opacity: 0;
+   position: fixed;
+   transform: translateX(-150%);
+ }
+
+/*====== estyles of menu expanded ======*/
+
+body.menu-max{
+  background-color: rgba(60, 156, 40, 0.705);
+  transition: 1s;
+}
+body.menu-max > :not(nav, .menu-expanded){
+  display: none;
+}
+body.menu-max nav button:nth-child(1){
+  display: none;
+}
+body.menu-max nav button:nth-child(2){
+  visibility: initial;
+  opacity: initial;
+  background: none;
+  border: none;
+  width: 5rem;
+}
+body.menu-max .menu-expanded{
+  display: flex;
+  transform: translateX(0);
+}
+.menu-expanded{
+  margin-top: 14rem;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(114, 2, 219);
+  display: none;
+  transform: translateX(1000%);
+}
+.menu-expanded ul{
+  align-items: flex-start;
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 3rem;
+}
+
+/*===== estilos header =====*/
+
+header{
+  margin-top: 14rem;
+  text-align: center;
+  align-items: center;
+}
+header h2{
+  margin-bottom: 4rem;
+}
+header img{
+  margin-top: 4rem;
+  margin-inline: auto;
+  width: 29rem;
+  display: block;
+}
+header button{
+  margin-top: 3rem;
+}
