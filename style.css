@@ -1,0 +1,272 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root{
+  font-size: 62.5%;
+  --nav-height: 7.2rem;
+}
+html,
+body{
+  width: 100%;
+  height: 100%;
+}
+body{
+  background-color: rgb(224, 191, 255);
+  font-size: 1.6rem;
+  overflow: overlay;
+  color: rgb(70, 18, 119);
+}
+ul, li{
+  list-style: none;
+}
+.size-page{
+  margin-inline: auto;
+  padding-inline: 2.4rem;
+  width: min(50rem,100%);
+}
+img{
+  max-width: 100%;
+  width: 40rem;
+  margin-top: 4rem;
+  margin-inline: auto;
+}
+
+/*==== estilos nav ====*/
+ nav {
+   display: flex;
+   width: 100vw;
+   top: 0;
+   border-end-start-radius: 5rem ;
+   border-bottom-right-radius: 5rem ;
+   position: fixed;
+   height: var(--nav-height);
+
+   z-index: 100;
+ }
+ nav h1{
+   color: rgb(114, 2, 219);
+   font-size: 3rem;
+ }
+ nav h1 b{
+   color: rgb(255, 230, 0);
+ }
+ nav .size-page{
+   align-items: center;
+   display: flex;
+   justify-content: space-around;
+   padding-inline: 0.5rem;
+ }
+ nav button{
+   cursor: pointer;
+ }
+ nav button:nth-child(1){
+   background: none;
+   border: none;
+   border-radius: 2rem;
+ }
+ nav button path{
+   stroke: purple;
+ }
+ nav button:hover{
+   background-color: rgb(251, 255, 2);
+ }
+ nav button:nth-child(2){
+   visibility: hidden;
+   opacity: 0;
+   position: fixed;
+   transform: translateX(-150%);
+ }
+
+/*====== estyles of menu expanded ======*/
+
+body.menu-max{
+  padding-inline: 2rem;
+  overflow: hidden;
+  background-color: rgba(60, 156, 40, 0.705);
+  transition: 1s;
+}
+body.menu-max > :not(nav, .menu-expanded){
+  display: none;
+}
+body.menu-max nav button:nth-child(1){
+  display: none;
+}
+body.menu-max nav button:nth-child(2){
+  visibility: initial;
+  opacity: initial;
+  background: none;
+  border: none;
+  width: 5rem;
+}
+body.menu-max .menu-expanded{
+  display: flex;
+}
+.menu-expanded{
+  width: min(50rem,100%);
+  position: fixed;
+  margin-top: 14rem;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(114, 2, 219);
+  display: none;
+  padding-inline: 2rem;
+}
+.menu-expanded ul{
+  align-items: flex-start;
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 3rem;
+}
+
+/*===== estilos header =====*/
+
+header{
+  margin-top: 14rem;
+  text-align: center;
+  align-items: center;
+}
+header h2{
+  margin-bottom: 4rem;
+}
+header img{
+  margin-top: 4rem;
+  margin-inline: auto;
+  width: 29rem;
+  display: block;
+}
+header button{
+  margin-top: 3rem;
+  width: 10rem;
+  height: 2.5rem;
+  border-radius: 2rem;
+  background-color: rgb(70, 18, 119);
+  color: rgb(251, 255, 2);
+  cursor: pointer;
+  font-weight: 700;
+}
+header button:hover{
+  background-color: rgb(251, 255, 2);
+  color: rgb(70, 18, 119);
+}
+ /*===== ANIMATED Monkey ======*/
+  .monkey{
+    transform: translateX(100000%);
+    position: fixed;
+  }
+ .monkey-ressurge{
+   transition: 1s;
+   transform: translateX(0);
+ }
+
+/*===== styles main =====*/
+main{
+  margin-inline: auto;
+  text-align: center;
+  align-items: center;
+}
+main h2{
+  margin-top: 20rem;
+  font-size: 4rem;
+}
+
+.imgs img{
+  width: 40rem;
+}
+main .content{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 6rem;
+}
+.content p{
+  background-color: rgb(70, 18, 119);
+  color: rgb(251, 255, 2);
+  width: 30rem;
+  font-size: 2rem;
+  line-height: 150%;
+  font-weight: 400;
+  padding: 3rem;
+  border-radius: 2rem;
+}
+
+.content-2{
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: min(50rem, 100%);
+  margin-inline: auto;
+}
+.content-2 h4{
+  font-size: 2.2rem;
+}
+.content-2 p{
+  padding-inline: 2rem;
+}
+
+/*===== estilos footer =====*/
+
+footer{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10rem;
+  padding: 3rem;
+  background-color: rgb(70, 18, 119);
+  color: rgb(251, 255, 2);
+}
+footer h4{
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+.footer div{
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+footer img{
+  width: 40rem;
+  height: 15rem;
+  background-color: rgb(251, 255, 2);
+  border-radius: 40rem;
+}
+footer div:nth-child(2){
+  width: 20rem;
+  padding: 0;
+  margin: 0;
+}
+
+/*===== cor de fundo====*/
+
+header::before{
+  content: '';
+  z-index: -100;
+  position: absolute;
+  display: block;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 66rem;
+  top: 0;
+}
+nav.scroll{
+  padding-top: 2rem;
+  background-color: rgb(70, 18, 119);
+}
+nav.scroll h1{
+  color: rgb(255, 230, 0);
+}
+nav.scroll path{
+  stroke: rgb(255, 230, 0);
+}
+nav.scroll button:hover{
+  background-color: rgb(114, 2, 219);
+}
+  
