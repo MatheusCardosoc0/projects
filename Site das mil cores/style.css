@@ -1,0 +1,260 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root{
+  --purple: 0;
+  --yellow: 150;
+
+  --color_nav_bg_purple: rgb(107, 107, 209);
+  --color_nav_purple:rgb(50, 68, 107);
+  --color_bg_image: rgb(38, 0, 128);
+  --main_color: rgb(25,31,107);
+  --bg-gradient: rgb(145, 161, 253);
+}
+body, html{
+  width: 100%;
+  height: 100%;
+}
+body{
+  overflow-x: hidden;
+}
+img{
+  margin-top: 6rem;
+  padding: 1rem;
+  margin-bottom: 3rem;
+  width: min(50rem, 100%);
+  background-image: linear-gradient(to bottom, var(--color_nav_bg_purple), var(--color_bg_image));
+  border-radius: 15rem;
+
+  transform: translateY(0px);
+  animation: float 5s ease-in-out infinite;
+}
+@keyframes float {
+  0%{
+    transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(-25px);
+  }
+  0%{
+    transform: translateY(0px);
+  }
+}
+div.scape{
+  position: absolute;
+  transform: translateY(1000px);
+  animation: fall 7s ease-in-out ;
+  animation-iteration-count: 1;
+  transition: 7s;
+}
+@keyframes fall {
+  0%{
+    transform: translateY(30px);
+  }
+  50%{
+    transform: translateY(-90px);
+  }
+  100%{
+    transform: translateY(1000px);
+  }
+}
+
+/*====== nav ====*/
+nav{
+  text-align: center;
+  background-image: linear-gradient(to right,var(--color_nav_bg_purple), var(--bg-gradient));
+  color: var(--color_nav_purple);
+  font-size: 1.6rem;
+  padding: 1rem;
+}
+nav h1{
+  line-height: 150%;
+  margin: 0 auto;
+  border-bottom: 10px solid;
+}
+ /*==== main =====*/
+
+ main{
+   font-size: 1.4rem;
+   font-weight: bolder;
+   color: var(--bg-gradient) ;
+   display: flex;
+   background-color: var(--color_nav_bg_purple);
+ }
+ main section:nth-child(2){
+   align-items: center;
+   text-align: center;
+   margin: 0 auto;
+   background-color: rgb(61, 70, 109);
+ }
+ main section:nth-child(1),
+ main section:nth-child(3){
+   width: 4rem;
+ }
+ main button{
+   margin-block: 2.4rem;
+   width: 8rem;
+   height: 2rem;
+   border-radius: 3rem;
+   text-transform: uppercase;
+
+   font-weight: 700;
+   cursor: pointer;
+   color: var(--bg-gradient);
+   background-image: linear-gradient(to right,var(--color_bg_image),var(--color_nav_purple));
+ }
+ main section:nth-child(3){
+   background-image: linear-gradient(to top, var(--color_nav_bg_purple), var(--bg-gradient));
+ }
+ main section:nth-child(1){
+   background-image: linear-gradient(to bottom,var(--color_nav_bg_purple),var(--bg-gradient));
+ }
+ /*==== footer =====*/
+
+ footer{
+   background-image: linear-gradient(to left,var(--color_nav_bg_purple),var(--bg-gradient));
+   color: var(--color_nav_purple);
+   font-weight: 700;
+   text-align: center;
+   padding: 2rem;
+   font-size: 1.4rem;
+ }
+
+/*==== yellow ====*/
+
+body.yellow nav{
+ background-image: linear-gradient(to right,rgb(163, 163, 19),rgb(253, 253, 43));
+ color: rgb(117, 117, 45);
+}
+body.yellow main section:nth-child(2){
+  background-color: rgb(66, 66, 15);
+  color: rgb(253, 253, 43);
+}
+body.yellow main section:nth-child(3){
+  background-image: linear-gradient(to top,rgb(163, 163, 19),rgb(253, 253, 43) );
+}
+body.yellow main section:nth-child(1){
+  background-image: linear-gradient(to bottom,rgb(163, 163, 19),rgb(253, 253, 43) );
+}
+body.yellow footer{
+  background-image: linear-gradient(to left,rgb(163, 163, 19),rgb(253, 253, 43) );
+  color: rgb(117, 117, 45);
+}
+
+body.yellow img{
+  background-image: linear-gradient(to top, rgb(99, 99, 4), rgb(243, 243, 40));
+}
+body.yellow button{
+  background-image: linear-gradient(to right,rgb(163, 163, 19),rgb(253, 253, 43));
+  color: rgb(117, 117, 45);
+  color: rgb(117, 117, 45);
+ }
+ body.yellow main{
+   background-color: rgb(243, 243, 40);
+ }
+
+ /*===== green style =====*/
+
+
+body.green nav{
+  background-image: linear-gradient(to right,rgb(84, 163, 19),rgb(109, 253, 43));
+  color: rgb(65, 117, 45);
+ }
+ 
+body.green main section:nth-child(2){
+   background-color: rgb(34, 66, 15);
+   color: rgb(85, 253, 43);
+ }
+ 
+body.green main section:nth-child(3){
+   background-image: linear-gradient(to top,rgb(48, 163, 19),rgb(120, 253, 43) );
+ }
+ 
+body.green main section:nth-child(1){
+   background-image: linear-gradient(to bottom,rgb(72, 163, 19),rgb(127, 253, 43) );
+ }
+ 
+body.green footer{
+   background-image: linear-gradient(to left,rgb(43, 163, 19),rgb(109, 253, 43) );
+   color: rgb(45, 117, 51);
+ }
+ 
+ body.green img{
+   background-image: linear-gradient(to top, rgb(23, 99, 4), rgb(155, 243, 40));
+ }
+ body.green button{
+   background-image: linear-gradient(to right,rgb(65, 163, 19),rgb(109, 253, 43));
+   color: rgb(18, 131, 4);
+  }
+  body.green main{
+    background-color: rgb(15, 161, 15);
+  }
+
+/*====== blue =====*/
+ 
+
+body.blue nav{
+  background-image: linear-gradient(to right,rgb(19, 69, 163),rgb(43, 151, 253));
+  color: rgb(45, 68, 117);
+ }
+ body.blue main section:nth-child(2){
+   background-color: rgb(15, 37, 66);
+   color: rgb(43, 99, 253);
+ }
+ body.blue main section:nth-child(3){
+   background-image: linear-gradient(to top,rgb(19, 77, 163),rgb(43, 158, 253) );
+ }
+ body.blue main section:nth-child(1){
+   background-image: linear-gradient(to bottom,rgb(19, 65, 163),rgb(43, 74, 253) );
+ }
+ body.blue footer{
+   background-image: linear-gradient(to left,rgb(19, 57, 163),rgb(43, 127, 253) );
+   color: rgb(45, 62, 117);
+ }
+ 
+ body.blue img{
+   background-image: linear-gradient(to top, rgb(4, 13, 99), rgb(40, 135, 243));
+ }
+ body.blue button{
+   background-image: linear-gradient(to right,rgb(19, 57, 163),rgb(43, 134, 253));
+   color: rgb(45, 64, 117);
+   color: rgb(46, 45, 117);
+  }
+  body.blue main{
+    background-color: rgb(40, 60, 243);
+  }
+
+/*==== pink =====*/
+
+body.pink nav{
+  background-image: linear-gradient(to right,rgb(151, 19, 163),rgb(211, 43, 253));
+  color: rgb(115, 45, 117);
+ }
+ body.pink main section:nth-child(2){
+   background-color: rgb(56, 15, 66);
+   color: rgb(176, 43, 253);
+ }
+ body.pink main section:nth-child(3){
+   background-image: linear-gradient(to top,rgb(139, 19, 163),rgb(246, 43, 253) );
+ }
+ body.pink main section:nth-child(1){
+   background-image: linear-gradient(to bottom,rgb(151, 19, 163),rgb(211, 43, 253) );
+ }
+ body.pink footer{
+   background-image: linear-gradient(to left,rgb(129, 19, 163),rgb(253, 43, 235) );
+   color: rgb(117, 45, 117);
+ }
+ 
+ body.pink img{
+   background-image: linear-gradient(to top, rgb(72, 4, 99), rgb(209, 40, 243));
+ }
+ body.pink button{
+   background-image: linear-gradient(to right,rgb(163, 19, 144),rgb(253, 43, 253));
+   color: rgb(91, 45, 117);
+   color: rgb(117, 45, 85);
+  }
+  body.pink main{
+    background-color: rgb(243, 40, 243);
+  }

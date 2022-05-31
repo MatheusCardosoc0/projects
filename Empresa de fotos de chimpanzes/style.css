@@ -257,5 +257,16 @@ header::before{
   top: 0;
 }
 nav.scroll{
+  padding-top: 2rem;
   background-color: rgb(70, 18, 119);
 }
+nav.scroll h1{
+  color: rgb(255, 230, 0);
+}
+nav.scroll path{
+  stroke: rgb(255, 230, 0);
+}
+nav.scroll button:hover{
+  background-color: rgb(114, 2, 219);
+}
+  
