@@ -1,7 +1,99 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 .elemi{
   color: chocolate;
   font-size: 2rem;
 }
 .butt{
   background-color: red;
+}
+body.DisabledButtonsOponent div.Hostily #Bolso{
+  visibility: hidden;
+  opacity: 0;
+}
+body.DisabledButtonsOponent div.Hostily #Lul{
+  visibility: hidden;
+  opacity: 0;
+}
+body.DisabledButtonsPlayer div.Ally #Lul{
+  visibility: hidden;
+  opacity: 0;
+}
+body.DisabledButtonsPlayer div.Ally #Bolso{
+  visibility: hidden;
+  opacity: 0;
+}
+div.Hostily{
+  color: yellow;
+  margin-left: auto;
+  padding: 5px;
+  display: table;
+  align-items: center;
+  flex-direction: column;
+  width: 16rem;
+  background-color: rgb(141, 25, 25);
+}
+div.Hostily div:nth-child(1){
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+}
+div.Hostily div:nth-child(2){
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.4rem;
+  margin-bottom: 10px;
+}
+div.Hostily button{
+  height: 35px;
+  width: 90px;
+  margin-right: 40px;
+  border-bottom-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+
+
+div.Ally{
+  color: yellow;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  flex-direction: column;
+  width: 25rem;
+  background-color: rgb(44, 51, 148);
+  margin-left: 0;
+}
+div.Ally div:nth-child(1){
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  margin-bottom: 2rem;
+}
+div.Ally div:nth-child(2){
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.4rem;
+  margin-bottom: 10px;
+}
+div.Ally button{
+  height: 35px;
+  width: 90px;
+  margin-right: 40px;
+  border-bottom-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.acontecimento{
+  margin: auto;
+  background-color: rgb(92, 102, 102);
+  text-align: center;
+  width: 20rem;
+  padding-block: 4rem;
+  font-size: 1.2rem;
+  border: 10px solid rgb(5, 5, 5);
+  font-weight: bold;
 }
