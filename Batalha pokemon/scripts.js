@@ -1,4 +1,5 @@
 const result = []
+const resultEnemy = []
 const QuemComeça = []
 var LPLula = 450
 var LPBolso = 530
@@ -7,6 +8,7 @@ const HpEnemy = []
 const turnatt = []
 var player = []
 var oponent = []
+var acabou = []
 
 function AttHp(i = 0){
   if(result[0] == 'Lula'){
@@ -41,6 +43,7 @@ function Lula(){
   buttonbol.disabled = true
   buttonLu.disabled = true
   result.push('Lula')
+  resultEnemy.push('Bolsonaro')
   AttHp()
   AttHpEnemy()
   apresentação()
@@ -49,6 +52,7 @@ function Bolsonaro(){
   buttonbol.disabled = true
   buttonLu.disabled = true
   result.push('Bolsonaro')
+  resultEnemy.push('Lula')
   AttHp()
   AttHpEnemy()
   apresentação()
@@ -138,18 +142,21 @@ function randomCoin(){
 }
 
 function turn(){
-  if(turnatt.length == 2){
+  if(turnatt.length == 1){
+    document.body.innerHTML = ''
+  }
+  else if(turnatt.length == 2){
     turnatt.splice('')
     document.body.innerHTML = ''
   }
-  if(turnatt.length >= 4){
+  else if(turnatt.length >= 3){
     turnatt.splice('')
     document.body.innerHTML = ''
   }
   turnatt.push(1)
   var Turntotal = turnatt.length 
   alert(`${Turntotal}`)
-
+  
   if(QuemComeça[0] == 0){
       EscolhaHabili()
       enemy()
@@ -169,15 +176,19 @@ function turn(){
   turnType()
 
   if(Math.min(...Hp) <= 0 || Math.min(...HpEnemy) <= 0){
+    acabou.push(1)
     alert('acabou')
     if(Math.min(...Hp) <= 0){
+      turnatt.splice('')
       document.body.innerHTML = 'Você perdeu!'
     }
     else if(Math.min(...HpEnemy) <= 0){
+      turnatt.splice('')
       document.body.innerHTML = 'Você venceu!'
     }
   }
 }
+
 function turnType(){
   alert(`${player}`)
   alert(`${oponent}`)
@@ -275,9 +286,9 @@ var LulaTxtDhl2 = []
 var LulaTxtDhl3 = []
 var LulaTxtDhl4 = []
 
-var Dhl1 = 50
+var Dhl1 = 120
 var Dhl3 = 0
-var Dhl4 = 150
+var Dhl4 = 200
 
 function hl1(){
   LulaTxtDhl1.push(1)
@@ -298,18 +309,52 @@ function hl1(){
 }
 
 function hl2(){
+  LulaTxtDhl2.push(1)
    Dhl1 = Dhl1 + 50
    Dhl4 = Dhl4 + 50
-  turn()
+  acontecimento()
 }
 
 function hl3(){
-   Dhl3 = Dhl3 + 35
+  LulaTxtDhl3.push(1)
+   Dhl3 = Dhl3 + 50
    alert(`${Dhl3}`)
-   turn()
+   acontecimento()
+}
+/*function imposto(i = Dhl3){
+  if(QuemComeça[0] == 0){
+    if(turnatt.length >= 2){
+      impostLula()
+    }
+    else{
+      impostLula()
+    }
+  }
+  if(QuemComeça[0] == 1){
+    if(turnatt.length == 1){
+      impostLula()
+    }
+    else{
+      impostLula()
+    }
+  }
+}*/
+function imposto(i = Dhl3){
+  if(result[0] == 'Lula'){
+    HpEnemy.sort(decrescente)
+    var DImpost = HpEnemy[0] - i
+    HpEnemy.push(DImpost)
+  }
+  else if(result[0] != 'Lula'){
+    Hp.sort(decrescente)
+    var DImpost = Hp[0] - i
+    Hp.push(DImpost)
+  }
 }
 
+
 function hl4(){
+  LulaTxtDhl4.push(1)
   if(result[0] == 'Lula'){
     HpEnemy.sort(decrescente)
     var dano = HpEnemy[0] - Dhl4
@@ -320,26 +365,52 @@ function hl4(){
     var dano = Hp[0] - Dhl4
     Hp.push(dano)
   }
-  turn()
+  acontecimento()
 }
 
 /*===== habilidades do Bolsonaro =====*/
+var BolsoTxtDhb2 = []
 var BolsoTxtDhb3 = []
-var Dhb3 = 30
+var BolsoTxtDhb4 = []
+
+var Dhb3 = 40
+var Dhb4 = 0
+
+var DDB1 = 0
+var DDB2 = 0
+var DDB3 = 0
 
 
 function hb1(){
+
+  alert('Bolsonaro demonstra suas habilidades atleticas, ativando uma de suas outras habilidades aleatóriamente e causando +50 de dano.')
+
+  if(result[0] == 'Bolsonaro'){
+    HpEnemy.sort(decrescente)
+    var dano = HpEnemy[0] - 50
+    HpEnemy.push(dano)
+  }
+  else{
+    Hp.sort(decrescente)
+    var dano = Hp[0] -  50
+    Hp.push(dano)
+  }
+
+  imposto()
   const WhereHability = [2,3]
   const random = (min,max) => Math.floor(Math.random() * (max - min) + min);
   var ChoiseHability = WhereHability[random(0, WhereHability.length)]
   if(ChoiseHability == 2){
-    hb2(50)
+    hb2()
   }
   else if(ChoiseHability == 3){
-    hb3()
+    hb4()
   }
 }
-function hb2(y = 0){
+function hb2(){
+  imposto()
+ 
+  BolsoTxtDhb2.push(1)
   const DPB = [25,45,65]
   const random = (min,max) => Math.floor(Math.random() * (max - min) + min);
   var DB1 = DPB[random(0, DPB.length)]
@@ -348,41 +419,36 @@ function hb2(y = 0){
 
   if(result[0] == 'Bolsonaro'){
     HpEnemy.sort(decrescente)
-    var dano = HpEnemy[0] - (DB1 + DB2 + DB3 + y) 
+    var dano = HpEnemy[0] - (DB1 + DB2 + DB3) 
     alert(`${DB1},${DB2},${DB3}`)
+    DDB1 = DB1
+    DDB2 = DB2
+    DDB3 = DB3
     HpEnemy.push(dano)
   }
   else{
     Hp.sort(decrescente)
-    var dano = Hp[0] -  (DB1 + DB2 + DB3 + y)
+    var dano = Hp[0] -  (DB1 + DB2 + DB3)
     alert(`${DB1},${DB2},${DB3}`)
+    DDB1 = DB1
+    DDB2 = DB2
+    DDB3 = DB3
     Hp.push(dano)
   }
-  turn()
+  acontecimento()
 }
 function hb3(){
+  imposto()
   BolsoTxtDhb3.push(1)
-  if(QuemComeça[0] == 0){
-    if(player[0] == 1 && oponent[0] == 2){
-      turnatt.push(1)
-      hb3Dano()
-    }
-    else if(player[0] == 2 && oponent[0] == 1){
-      turnatt.splice('')
-      turnatt.push(1)
-      hb3Dano()
-    }
+
+  if(turnatt.length == 1){
+     turnatt.push(1,1,1)
+     hb3Dano()
   }
-  if(QuemComeça[0] == 1){
-    if(player[0] == 2 && oponent[0] == 1){
-      turnatt.push(1)
-      hb3Dano()
-    }
-    else if(player[0] == 1 && oponent[0] == 2){
-      turnatt.splice('')
-      turnatt.push(1)
-      hb3Dano()
-    }
+  else if(turnatt.length == 2){
+    turnatt.splice('')
+    turnatt.push(1)
+    hb3Dano()
   }
   acontecimento()
 }
@@ -398,8 +464,22 @@ function hb3Dano(){
     Hp.push(dano)
   }
 }
+function hb4(){
+  imposto()
+  BolsoTxtDhb4.push(1)
+  Dhb4 = Dhb4 + 20
+  hb3Dano()
 
-/*====== outras funções ======*/
+/*== redução do poder das habilidades ==*/
+
+  Dhl1 = Dhl1 - 20
+  Dhl4 = Dhl4 - 20
+
+  acontecimento()
+}
+
+/*===================== 
+outras funções ======*/
 
 
 Hp.sort(decrescente)
@@ -407,23 +487,28 @@ HpEnemy.sort(decrescente)
 function decrescente(a,b){
   return (a - b)
 }
-function acontecimento(){}
 
 function enemy(){
   alert(`${HpEnemy}`)
   if(result[0] == 'Lula'){
       EscolhaHabili('Bolsonaro')
 }
-  if(result[0] == 'Bolsonaro'){
+  else if(result[0] == 'Bolsonaro'){
       EscolhaHabili('Lula')
 }
+if(acabou[0] != 1){
+  IAEnemy()
+}
+
 }
 function acontecimento(){
   FalasLula()
   FalasBolsonaro()
-  setTimeout(() => {
-    turn()
-  }, 1500);
+  if(Math.min(...Hp) >= 0 || Math.min(...HpEnemy) >= 0){
+    setTimeout(() => {
+      turn()
+    }, 1500);
+}
 }
 function FalasLula(){
   if(LulaTxtDhl1[0] == 1){
@@ -432,12 +517,91 @@ function FalasLula(){
     </div>`
     LulaTxtDhl1.splice('')
   }
+  else if(LulaTxtDhl2[0] == 1){
+    document.body.innerHTML += `<div class="acontecimento">
+    <p>Lula mostra que é o homen mais honesto do Brasil para seus fãs e aumenta o poder de suas habilidades em 50 pontos</p>
+    </div>`
+    LulaTxtDhl2.splice('')
+  }
+  else if(LulaTxtDhl3[0] == 1){
+    document.body.innerHTML += `<div class="acontecimento">
+    <p>Lula cria uma nova lei, agora para ativar uma habilidade o inimigo dele terá que pagar ${Dhl3} pontos de vida.</p>
+    </div>`
+    LulaTxtDhl3.splice('')
+  }
+  else if(LulaTxtDhl4[0] == 1){
+    document.body.innerHTML += `<div class="acontecimento">
+    <p>Lula pega e aremeça a Dilminha no inimigo causando ${Dhl4} de dano.</p>
+    </div>`
+    LulaTxtDhl4.splice('')
+  }
 }
 function FalasBolsonaro(){
-  if(BolsoTxtDhb3[0] == 1){
+
+  if(BolsoTxtDhb2[0] == 1){
+    document.body.innerHTML += `<div class="acontecimento">
+    <p>Bolsonaro saca um fuzil e atira, as balas causam ${DDB1}, ${DDB2} e ${DDB3} de dano respectivamente.</p>
+    </div>`
+    BolsoTxtDhb2.splice('')
+  }
+  else if(BolsoTxtDhb3[0] == 1){
     document.body.innerHTML += `<div class="acontecimento">
     <p>Bolsonaro mita para cima de seu inimigo o atordoando e causando ${Dhb3} de dano por ferir os sentimentos.</p>
     </div>`
     BolsoTxtDhb3.splice('')
   }
+  else if(BolsoTxtDhb4[0] == 1){
+    document.body.innerHTML += `<div class="acontecimento">
+    <p>Bolsonaro salta e aplica cloroquina a força no inimigo, fazendo com que ele perca ${Dhb4} pontos de habilidade e ${Dhb3} pontos de vida.</p>
+    </div>`
+    BolsoTxtDhb4.splice('')
+  }
 }
+function IAEnemy(){
+  if(QuemComeça[0] == 0){
+    if(turnatt.length == 1){
+      return 0
+    }
+    else{
+      EnemyBolso()
+    }
+  }
+  if(QuemComeça[0] == 1){
+    if(turnatt.length == 2){
+      return 0
+    }
+    else{
+      EnemyBolso()
+    }
+  }
+}
+function EnemyBolso(){
+  if(resultEnemy[0] == 'Bolsonaro'){
+    const habilities = [1,2,3,4]
+    const random = (min,max) => Math.floor(Math.random() * (max - min) + min);
+    var Resulthabilities = habilities[random(0, habilities.length)]
+    
+    if(Resulthabilities == 1){
+      hb1()
+      habilities.splice('1')
+      alert(`${habilities}`)
+    }
+    if(Resulthabilities == 2){
+      hb2()
+      habilities.splice(2)
+      alert(`${habilities}`)
+    }
+    if(Resulthabilities == 3){
+      hb3()
+      habilities.splice('3')
+      alert(`${habilities}`)
+    }
+    if(Resulthabilities == 4){
+      hb4()
+      habilities.splice(4)
+      alert(`${habilities}`)
+    }
+  }
+}
+
+function EnemyLula(){}
