@@ -43,7 +43,7 @@ img{
   }
 }
 div.scape{
-  position: absolute;
+  position: fixed;
   transform: translateY(1000px);
   animation: fall 7s ease-in-out ;
   animation-iteration-count: 1;
@@ -56,8 +56,11 @@ div.scape{
   50%{
     transform: translateY(-90px);
   }
-  100%{
+  90%{
     transform: translateY(1000px);
+  }
+  100%{
+    transform: translateX(1000px);
   }
 }
 
