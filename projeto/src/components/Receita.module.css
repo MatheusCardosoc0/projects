@@ -1,0 +1,13 @@
+.ContainerReceita{
+  color: rgb(7, 7, 107);
+  text-shadow: rgb(177, 174, 20) 2px 1px;
+  font-size: 1.4rem;
+  padding: 3rem;
+  margin-inline: auto;
+  width: min(50rem, 100%);
+  background: linear-gradient(to top,rgb(51, 51, 172), rgb(172, 22, 22));
+}
+.ContainerReceita h1{
+  margin-bottom: 50px;
+  font-size: 3rem;
+}

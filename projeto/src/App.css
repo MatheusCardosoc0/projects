@@ -1,24 +1,14 @@
-.App {
+.Content {
+  width: min(50rem, 100%);
+  margin-inline: auto;
+  padding-inline: 2.4rem;
+  color: rgb(0, 255, 106);
+  text-shadow: rgb(31, 138, 63) 2px 2px;
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.Form{
+  margin-block: 3rem;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.Form h1{
+  margin-bottom: 1.5rem;
 }

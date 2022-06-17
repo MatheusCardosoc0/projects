@@ -1,5 +1,22 @@
-body {
+*{
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  box-sizing: border-box;
 }
+body {
+  background-image: linear-gradient(to right,rgb(71, 182, 197), rgb(13, 192, 13));
+  background-size: cover;
+}
+ul li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 1rem;
+  font-size: 1.2rem;
+  margin-inline: auto;
+}
+p{
+  line-height: 150%;
+  margin-block: 1rem;
+}
+
